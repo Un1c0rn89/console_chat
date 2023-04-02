@@ -3,15 +3,12 @@
 class Message
 {
 public:
-	Message(std::string& from, std::string& to, std::string& text) : 
-		_from(from), _to(to), _text(text) {
-		setTime(_time);
-	}
+	Message(std::string& from, std::string& to, std::string& text);
 
-	const std::string getFrom() { return _from; }
-	const std::string getTo() { return _to; }
-	const std::string getText() { return _text; }
-	const std::string getTime() { return _time; }	
+	std::string getFrom() const;
+	std::string getTo() const;
+	std::string getText() const;
+	std::string getTime() const;
 
 private:
 	std::string _from;
@@ -19,11 +16,5 @@ private:
 	std::string _text;
 	std::string _time;
 
-	void setTime(std::string& t) {
-		time_t result = time(nullptr);
-		const int BUF_SIZE = 26;
-		char str[BUF_SIZE];
-		ctime_s(str, sizeof str, &result);
-		t = str;
-	}
+	void setTime(std::string& t);
 };

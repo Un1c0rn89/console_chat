@@ -3,19 +3,14 @@
 class User
 {
 public:
-	User(std::string login, std::string name, std::string password) : 
-		_login(login), _name(name), _password(password){}
+	User(std::string& name, std::string& login, std::string& password);
 
-	const std::string getLogin() { return _login; }
-	//void setLogin(std::string& login) { _login = login; }
-
-	const std::string getName() { return _name; }
-
-	const std::string getPassword() { return _password; }
-	//void setPassword(std::string& password) { _password = password; }
+	std::string getLogin() const;
+	std::string getName() const;
+	std::string getPassword() const;
 
 private:
-	std::string _login;
 	std::string _name;
+	std::string _login;
 	std::string _password;
 };
